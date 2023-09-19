@@ -37,10 +37,15 @@
             id="value"
             v-model="form.value" />
         </div>
-        <button class="btn btn-primary" type="submit" :disabled="!canCreate">Create</button>
+        <button class="btn btn-primary" type="submit" :disabled="!canCreate">
+          Create
+        </button>
       </form>
 
-      <div v-if="contacts.length">
+      <div v-if="loading">
+        <loader />
+      </div>
+      <div v-else-if="contacts.length">
         <div class="card mb-3" v-for="contact in contacts">
           <div class="card-body">
             <h5
